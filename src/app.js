@@ -8,6 +8,16 @@ const geocode = require("./utils/geocode.js");
 // Get the express server
 const app = express();
 
+console.log(process.env.PORT);
+
+// const port = process.env.PORT || 3000;
+
+var port = 3000;
+
+if(process.env.PORT){
+    port = process.env.PORT
+}
+
 // Set the express server to use hbs view engine
 app.set("view engine", "hbs");
 
@@ -20,8 +30,6 @@ hbs.registerPartials(partialsPath);
 // Register the static files path
 const publicDirectoryPath = path.join(__dirname, "../public");
 app.use(express.static(publicDirectoryPath));
-
-console.log("Hello");
 
 const author = "Peter";
 
@@ -85,6 +93,6 @@ app.get("*", (req, res) => {
     });
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("Server is running on port 3000");
 });
