@@ -21,6 +21,8 @@ hbs.registerPartials(partialsPath);
 const publicDirectoryPath = path.join(__dirname, "../public");
 app.use(express.static(publicDirectoryPath));
 
+console.log("Hello");
+
 const author = "Peter";
 
 app.get("/", (req, res) => {
